@@ -181,3 +181,27 @@ th , td{
 
 
 
+
+@keyframes setaAnimacao {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-30%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+.seta{
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .seta {
+    display: inline-block;
+    animation: setaAnimacao .8s ease-in infinite alternate;
+  }
+}
