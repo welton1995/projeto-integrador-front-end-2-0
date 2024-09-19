@@ -1,5 +1,5 @@
 const apiTeste = 'https://projeto-integrador-back-end-2-0.vercel.app';
-const address = 'http://127.0.0.1:5501/pages';
+const address = 'https://projeto-integrador-front-end-2-0.vercel.app/pages';
 const tabelaServicos = document.querySelector('#servicos');
 
 // inputs cadastro
