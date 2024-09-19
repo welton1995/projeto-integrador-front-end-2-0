@@ -172,7 +172,7 @@ tr:hover td {
 }
 
 
-th {
+th , td{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; /* Opcional */
