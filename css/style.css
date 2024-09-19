@@ -1,0 +1,174 @@
+
+a {
+  margin: .25rem
+}
+
+.footer {
+  background: linear-gradient(#00c6fb 0%, #005bea 100%);
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  position: relative;
+  bottom: 1px;
+  margin-top: 60px;
+}
+
+.pagina {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem;
+}
+
+.logo {
+  filter: drop-shadow(4px 4px 2px black);
+}
+
+body {
+  min-width: auto;
+  min-height: 100vh;
+  background-color: #e3e4e6;
+}
+
+main {
+  min-height: 75vh;
+}
+
+.logo:hover {
+  animation: rubberBand ease-in-out; 
+  animation-duration: 1s;
+}
+
+.link {
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 2px black;
+}
+
+.icon {
+  transition: ease .3s;
+  margin: 5px;
+  display: inline-block;
+  cursor: pointer;
+
+}
+.icon:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(2px 2px 2px black);
+}
+
+.animacao {
+  display: inline-block;
+  margin: 0 0.5rem;
+  animation: heartBeat infinite ease-in-out; 
+  animation-duration: 10s;
+  filter: drop-shadow(2px 2px 2px black);
+}
+
+.sombra {
+  filter: drop-shadow(4px 4px 1px black);
+  color: white;
+  margin: .55rem;
+}
+
+.botao {
+  background-color: #00c6fb;
+  font-weight: 700;
+  color: white;
+}
+.botao:hover {
+  background-color: #00c5fbc2;
+  font-weight: 700;
+  color: white;
+}
+
+.tamanhoInput {
+  width: 75%;
+  margin: .25rem;
+}
+
+/* Registra Saída */
+.botaoMenosMais {
+  width: 4rem;
+  height: 3rem;
+}
+
+.visor {
+  width: 5rem;
+  height: 3rem;
+  margin: 0 .5rem
+}
+
+.inputsRegistrarSaida {
+  width: 80%;
+  margin-bottom: 1rem;
+}
+
+.inputConfirmaSaida, .inputConfirmaEntrada {
+  width: 105px;
+  margin: .5rem;
+}
+
+.nomesFormulario {
+  font-weight: bold;
+  color: aliceblue;
+  margin-right: .5rem;
+}
+
+td {
+  transition: .3s;
+}
+
+tr:hover td {
+  background-color: #92ddf1;
+  transform: translate(5px, -5px);
+  border-radius: 5px;
+
+}
+
+/* Barra de navegação */
+/* Estilo para a barra de rolagem vertical */
+::-webkit-scrollbar {
+  width: 15px; /* Largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00c6fb;
+   /* Cor do botão de rolagem */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Cor da área da barra de rolagem */
+}
+
+/* Estilo para a barra de rolagem horizontal */
+::-webkit-scrollbar-horizontal {
+  height: 15px; /* Altura da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: #00c6fb;
+ /* Cor do botão de rolagem horizontal */
+}
+
+::-webkit-scrollbar-track:horizontal {
+  background-color: #f1f1f1; /* Cor da área da barra de rolagem horizontal */
+}
+
+.submenu {
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+  transition: 0.4s ease-in-out;
+  text-shadow: 2px 2px 2px black;
+}
+
+.submenu:hover {
+  color: white;
+  text-shadow: 2px 2px 2px black;
+}
+
+
