@@ -57,7 +57,7 @@ buscaRegistros();
 // Cadastra uma chave no Banco de dados
 btnCadastrar.addEventListener('click', async(event)=> {
   if(!modeloCadastrar.value || !codigoCadastrar.value || !quantidadeCadastrar.value) {
-    Swal.fire({
+   await Swal.fire({
       title: "Preencha todos os campos e tente novamente!",
       icon: "info",
       confirmButtonColor: "#5bc0de",
@@ -86,7 +86,7 @@ btnCadastrar.addEventListener('click', async(event)=> {
     const conteudo = await resposta.json();
 
     if(conteudo == 'Código de chave já cadastrado!'){
-      Swal.fire({
+      await Swal.fire({
         title: "Código de chave já cadastrado!",
         icon: "info",
         confirmButtonColor: "#5bc0de",
@@ -95,16 +95,16 @@ btnCadastrar.addEventListener('click', async(event)=> {
     }
 
     if(conteudo == 'Chave cadastrada com sucesso!'){
-      Swal.fire({
+     await Swal.fire({
         title: "Chave cadastrada com sucesso!",
         icon: "success",
         confirmButtonColor: "#5cb85c",
       });
     }
 
-    setTimeout(()=> {
-      window.location.href = './index.html';
-    }, 1500);  
+
+      window.location.href = '../index.html';
+
   } catch (error) {
     return console.log(error);
   }
