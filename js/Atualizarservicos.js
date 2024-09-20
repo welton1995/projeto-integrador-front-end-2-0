@@ -21,12 +21,12 @@ const observacaoServico = document.querySelector('#servicoObservacao');
 const horaServico = document.querySelector('#servicoData');
 
 // Cadastrar
-const tipoModal = document.querySelector('#servicoTipo');
-const precoModal = document.querySelector('#servicoPreco');
-const custoModal = document.querySelector('#servicoCusto');
-const quantidadeServicoModal = document.querySelector('#servicoQuantidade');
-const observacaoModal = document.querySelector('#servicoObservacao');
-const horaModal = document.querySelector('#servicoData');
+const tipoModal = document.querySelector('#servicoTipoModal');
+const precoModal = document.querySelector('#servicoPrecoModal');
+const custoModal = document.querySelector('#servicoCustoModal');
+const quantidadeServicoModal = document.querySelector('#servicoQuantidadeModal');
+const observacaoModal = document.querySelector('#servicoObservacaoModal');
+const horaModal = document.querySelector('#servicoDataModal');
 const btnCadastrarServicoModal = document.querySelector('#btnServicoCadastrar');
 
 // Seta os valores vindos da URL nos inputs
