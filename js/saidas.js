@@ -1,5 +1,5 @@
 // URL da API
-const apiURL = 'https://projeto-integrador-back-end.vercel.app';
+const apiSaida = 'https://projeto-integrador-back-end.vercel.app';
 
 const modeloCadastrar = document.querySelector('#inputModeloCadastrar');
 const codigoCadastrar = document.querySelector('#inputCodigoCadastrar');
@@ -13,7 +13,7 @@ const buscaRegistros = async () => {
         method: 'GET',
         redirect: 'follow'
     };
-    const resposta = await fetch(`${apiURL}/saidas`, requestOptions);
+    const resposta = await fetch(`${apiSaida}/saidas`, requestOptions);
     const conteudo = await resposta.json();
     console.log(conteudo)
 
@@ -81,7 +81,7 @@ btnCadastrar.addEventListener('click', async(event)=> {
       }
     };
 
-    const resposta = await fetch(apiURL, requestOptions);
+    const resposta = await fetch(apiSaida, requestOptions);
     const conteudo = await resposta.json();
 
     if(conteudo == 'Código de chave já cadastrado!'){
