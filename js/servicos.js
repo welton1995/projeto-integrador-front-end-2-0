@@ -1,5 +1,5 @@
 const apiTeste = 'https://projeto-integrador-back-end-2-0.vercel.app';
-const address = 'http://127.0.0.1:5501/pages';
+const address = 'https://projeto-integrador-front-end-2-0.vercel.app';
 const tabelaServicos = document.querySelector('#servicos');
 
 // inputs cadastro
@@ -98,7 +98,7 @@ btnCadastrarServico.addEventListener('click', async () => {
       confirmButtonColor: "#5cb85c",
     });
 
-    window.location.href = `${address}/servicos.html`;
+    window.location.href = `${address}/pages/servicos.html`;
 
   } catch (error) {
     console.log(error);
