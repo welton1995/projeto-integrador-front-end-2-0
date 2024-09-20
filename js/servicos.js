@@ -12,6 +12,16 @@ const hora = document.querySelector('#servicoData');
 const btnCadastrarServico = document.querySelector('#btnServicoCadastrar');
 const btnExcluir = document.querySelector('#btnServicoExcluir');
 
+// inputs cadastro
+const tipoModal = document.querySelector('#servicoTipo');
+const precoModal = document.querySelector('#servicoPreco');
+const custoModal = document.querySelector('#servicoCusto');
+const quantidadeServicoModal = document.querySelector('#servicoQuantidade');
+const observacaoModal = document.querySelector('#servicoObservacao');
+const horaModal = document.querySelector('#servicoData');
+const btnCadastrarServicoModal = document.querySelector('#btnServicoCadastrar');
+
+
 // Listar Servicos
 const listarServicos = async() => {
   try {

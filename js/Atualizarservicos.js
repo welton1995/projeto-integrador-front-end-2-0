@@ -1,4 +1,6 @@
-const apiTeste = 'https://projeto-integrador-back-end-2-0.vercel.app';
+const apiServico = 'https://projeto-integrador-back-end-2-0.vercel.app';
+const address = 'https://projeto-integrador-front-end-2-0.vercel.app';
+
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
@@ -10,50 +12,59 @@ const observacaoURL = params.get('observacao');
 const horaURL = params.get('data');
 const btnAtualizar = document.querySelector('#btnAtualizarServico');
 
-const tipo = document.querySelector('#servicoTipo');
-const preco = document.querySelector('#servicoPreco');
-const custo = document.querySelector('#servicoCusto');
-const quantidade = document.querySelector('#servicoQuantidade');
-const observacao = document.querySelector('#servicoObservacao');
-const hora = document.querySelector('#servicoData');
+// Atualizar
+const tipoServico = document.querySelector('#servicoTipo');
+const precoServico = document.querySelector('#servicoPreco');
+const custoServico = document.querySelector('#servicoCusto');
+const quantidadeServicoAtualizar = document.querySelector('#servicoQuantidade');
+const observacaoServico = document.querySelector('#servicoObservacao');
+const horaServico = document.querySelector('#servicoData');
 
-console.log('teste')
+// Cadastrar
+const tipoModal = document.querySelector('#servicoTipo');
+const precoModal = document.querySelector('#servicoPreco');
+const custoModal = document.querySelector('#servicoCusto');
+const quantidadeServicoModal = document.querySelector('#servicoQuantidade');
+const observacaoModal = document.querySelector('#servicoObservacao');
+const horaModal = document.querySelector('#servicoData');
+const btnCadastrarServicoModal = document.querySelector('#btnServicoCadastrar');
 
-tipo.value = tipoURL;
-preco.value = precoURL;
-custo.value = custoURL;
-quantidade.value = quantidadeURL;
-observacao.value = observacaoURL;
-hora.value = new Date(horaURL).toISOString().slice(0, 16);
-observacao.value = observacaoURL;
+// Seta os valores vindos da URL nos inputs
+tipoServico.value = tipoURL;
+precoServico.value = precoURL;
+custoServico.value = custoURL;
+quantidadeServicoAtualizar.value = quantidadeURL;
+observacaoServico.value = observacaoURL;
+horaServico.value = new Date(horaURL).toISOString().slice(0, 16);
+observacaoServico.value = observacaoURL;
 
-
+// Atualizar
 btnAtualizar.addEventListener('click', async (e) => {
   e.preventDefault();
   try {
-    if(!tipo.value || tipo.value == 'Selecione um tipo'){
-      return tipo.focus();
+    if(!tipoServico.value || tipoServico.value == 'Selecione um tipo'){
+      return tipoServico.focus();
     }
-    if(!preco.value){
-      return preco.focus();
+    if(!precoServico.value){
+      return precoServico.focus();
     }
-    if(!custo.value){
-      return custo.focus();
+    if(!custoServico.value){
+      return custoServico.focus();
     }
-    if(!quantidade.value){
-      return quantidade.focus();
+    if(!quantidadeServicoAtualizar.value){
+      return quantidadeServicoAtualizar.focus();
     }
-    if(!hora.value){
-      return hora.focus();
+    if(!horaServico.value){
+      return horaServico.focus();
     }
 
     const raw = {
-      tipo: tipo.value,
-      preco: preco.value,
-      custo: custo.value,
-      quantidade: quantidade.value,
-      hora: hora.value,
-      observacao: observacao.value,
+      tipo: tipoServico.value,
+      preco: precoServico.value,
+      custo: custoServico.value,
+      quantidade: quantidadeServicoAtualizar.value,
+      hora: horaServico.value,
+      observacao: observacaoServico.value,
     }
 
     const requestOptions = {
@@ -65,7 +76,7 @@ btnAtualizar.addEventListener('click', async (e) => {
       }
     };
 
-    const resposta = await fetch(`${apiTeste}/servicos/${id}`, requestOptions);
+    const resposta = await fetch(`${apiServico}/servicos/${id}`, requestOptions);
     const conteudo = await resposta.json();
 
     if(conteudo.message == 'Servico editado com sucesso!'){
@@ -85,3 +96,59 @@ btnAtualizar.addEventListener('click', async (e) => {
     console.log(error);
   }
 })
+
+// Cadastrar
+btnCadastrarServicoModal.addEventListener('click', async () => {
+  try {
+    if(tipoModal.value == 'Selecione um tipo' || !tipoModal.value){
+      return tipotipoModal.focus();
+    }
+    if(!precoModal.value){
+      return precoModal.focus();
+    }
+    if(!custoModal.value){
+      return custoModal.focus();
+    }
+    if(!quantidadeServicoModal.value){
+      return quantidadeServicoModal.focus();
+    }
+    if(!horaModal.value){
+      return horaModal.focus();
+    }
+
+
+    const raw = {
+      tipo: tipoModal.value,
+      preco: precoModal.value,
+      custo: custoModal.value,
+      quantidade: quantidadeServicoModal.value,
+      hora: horaModal.value,
+      observacao: observacaoModal.value,
+    }
+
+    const requestOptions = {
+      method: 'POST',
+      redirect: 'follow',
+      body: JSON.stringify(raw),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+
+    const resposta = await fetch(`${apiServico}/servicos`, requestOptions);
+    const conteudo = await resposta.json();
+
+    console.log(conteudo)
+
+    await Swal.fire({
+      title: "Serviço cadastrado com sucesso!",
+      icon: "success",
+      confirmButtonColor: "#5cb85c",
+    });
+
+    window.location.href = `${address}/pages/servicos.html`;
+
+  } catch (error) {
+    console.log(error);
+  }
+});
