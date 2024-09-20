@@ -1,6 +1,5 @@
 // URL da API
 const apiURL = 'https://projeto-integrador-back-end.vercel.app';
-// const apiURL = 'https://projeto-integrador-back-end-5kn7.onrender.com';
 
 const modeloCadastrar = document.querySelector('#inputModeloCadastrar');
 const codigoCadastrar = document.querySelector('#inputCodigoCadastrar');
@@ -95,16 +94,15 @@ btnCadastrar.addEventListener('click', async(event)=> {
     }
 
     if(conteudo == 'Chave cadastrada com sucesso!'){
-      Swal.fire({
+     await Swal.fire({
         title: "Chave cadastrada com sucesso!",
         icon: "success",
         confirmButtonColor: "#5cb85c",
       });
     }
 
-    setTimeout(()=> {
-      window.location.href = './index.html';
-    }, 1500);  
+      window.location.href = '../index.html';
+ 
   } catch (error) {
     return console.log(error);
   }
