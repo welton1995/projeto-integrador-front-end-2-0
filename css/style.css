@@ -289,3 +289,5 @@ th , td{
 .loading-link:hover::after {
   width: 100%; /* A barra se expande ao passar o mouse */
 }
+
+
