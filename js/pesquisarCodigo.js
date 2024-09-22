@@ -1,3 +1,6 @@
+const apiURL = 'https://projeto-integrador-back-end-2-0.vercel.app';
+
+
 // inputs para pesquisar um código
 const buscaCodigo = document.querySelector('#buscaCodigo');
 const btnBuscaCodigo = document.querySelector('#btnBuscaCodigo');

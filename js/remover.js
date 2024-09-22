@@ -1,5 +1,5 @@
 // URL da API
-const apiURL = 'https://projeto-integrador-back-end.vercel.app';
+const urlApi = 'https://projeto-integrador-back-end.vercel.app';
 
 // input e buttons - adiciona e remove
 const inputNumero = document.querySelector('#numero');
@@ -59,7 +59,7 @@ btnCadastrar.addEventListener('click', async(event)=> {
       }
     };
 
-    const resposta = await fetch(apiURL, requestOptions);
+    const resposta = await fetch(urlApi, requestOptions);
     const conteudo = await resposta.json();
 
     if(conteudo == 'Código de chave já cadastrado!'){
@@ -79,7 +79,7 @@ btnCadastrar.addEventListener('click', async(event)=> {
       });
 
       setTimeout(()=> {
-        window.location.href = '../index.html';
+        window.location.href = './estoque.html';
       }, 1500);  
     }
 
@@ -114,7 +114,7 @@ confirmaSaida.addEventListener('click', async(event) => {
       return;
     }
     
-    const resposta = await fetch(`${apiURL}/saidas/${id}`, requestOptions);
+    const resposta = await fetch(`${urlApi}/saidas/${id}`, requestOptions);
     const conteudo = await resposta.json();
 
     if(conteudo == 'Saldo insuficiente!'){
@@ -134,7 +134,7 @@ confirmaSaida.addEventListener('click', async(event) => {
       });
 
       setTimeout(()=> {
-        window.location.href = '../index.html';
+        window.location.href = './estoque.html';
       }, 1500);
 
       return;

@@ -1,5 +1,5 @@
 // URL da API
-const apiURL = 'https://projeto-integrador-back-end.vercel.app';
+const urlApi = 'https://projeto-integrador-back-end.vercel.app';
 
 // inputs formulario registrar saida
 const modelo = document.querySelector('#inputModeloSaida');
@@ -30,7 +30,7 @@ confirmaSaida.addEventListener('click', async (event)=> {
       }
     }
 
-    const resposta = await fetch(`${apiURL}/saidas/${id}`, requestOptions);
+    const resposta = await fetch(`${urlApi}/saidas/${id}`, requestOptions);
     const conteudo = await resposta.json();
 
     if(conteudo == 'Saída não encontrada!'){

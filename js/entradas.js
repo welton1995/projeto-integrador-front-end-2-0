@@ -103,7 +103,7 @@ btnCadastrar.addEventListener('click', async(event)=> {
     }
 
 
-      window.location.href = '../index.html';
+      window.location.href = './estoque.html';
 
   } catch (error) {
     return console.log(error);

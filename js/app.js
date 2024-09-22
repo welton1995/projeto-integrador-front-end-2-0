@@ -1,5 +1,5 @@
 // URL da API
-const apiURL = 'https://projeto-integrador-back-end.vercel.app';
+const urlApi = 'https://projeto-integrador-back-end.vercel.app';
 const addressOk = 'https://projeto-integrador-front-end-2-0.vercel.app'
 // inputs para cadastrar chave
 const modeloCadastrar = document.querySelector('#inputModeloCadastrar');
@@ -15,7 +15,7 @@ const buscaRegistros = async () => {
         method: 'GET',
         redirect: 'follow'
     };
-    const resposta = await fetch(apiURL, requestOptions);
+    const resposta = await fetch(urlApi, requestOptions);
     const conteudo = await resposta.json();
 
     if(conteudo.chaves.length == 0){
@@ -36,9 +36,9 @@ const buscaRegistros = async () => {
       <td class="text-center align-middle">${chave.codigo}</a></td>
       <td class="text-center align-middle">${chave.quantidade}</a></td>
       <td class="text-center align-middle">
-        <a href="pages/remover.html?id=${chave._id}&nome=${chave.nome}&codigo=${chave.codigo}&quantidade=${chave.quantidade}"><img src="./imgs/remover.png" width="24px" title="Saída de Estoque" class='icon'  data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
-        <a href="pages/adicionar.html?id=${chave._id}&nome=${chave.nome}&codigo=${chave.codigo}&quantidade=${chave.quantidade}"><img src="./imgs/adicionar.png" width="24px" title="Entrada de Estoque" class='icon'></a>
-        <a href="pages/excluirChave.html?id=${chave._id}&nome=${chave.nome}&codigo=${chave.codigo}&quantidade=${chave.quantidade}"><img src="./imgs/lixeira.png" width="24px" title="Remover Chave" class='icon'></a>
+        <a href="./remover.html?id=${chave._id}&nome=${chave.nome}&codigo=${chave.codigo}&quantidade=${chave.quantidade}"><img src="../imgs/remover.png" width="24px" title="Saída de Estoque" class='icon'  data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
+        <a href="./adicionar.html?id=${chave._id}&nome=${chave.nome}&codigo=${chave.codigo}&quantidade=${chave.quantidade}"><img src="../imgs/adicionar.png" width="24px" title="Entrada de Estoque" class='icon'></a>
+        <a href="./excluirChave.html?id=${chave._id}&nome=${chave.nome}&codigo=${chave.codigo}&quantidade=${chave.quantidade}"><img src="../imgs/lixeira.png" width="24px" title="Remover Chave" class='icon'></a>
       </td>
       `
       tabela.appendChild(tr); 
@@ -81,7 +81,7 @@ btnCadastrar.addEventListener('click', async(event)=> {
       }
     };
 
-    const resposta = await fetch(apiURL, requestOptions);
+    const resposta = await fetch(urlApi, requestOptions);
     const conteudo = await resposta.json();
 
     if(conteudo == 'Código de chave já cadastrado!'){

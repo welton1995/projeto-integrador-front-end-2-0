@@ -1,3 +1,6 @@
+* {
+  font-family: "Vollkorn", serif;
+}
 
 a {
   margin: .25rem
@@ -22,6 +25,11 @@ a {
 
 .logo {
   filter: drop-shadow(4px 4px 2px black);
+}
+
+p {
+  letter-spacing: -0.005em;
+  font-size: 1.025rem
 }
 
 body {
@@ -204,4 +212,80 @@ th , td{
     display: inline-block;
     animation: setaAnimacao .8s ease-in infinite alternate;
   }
+}
+
+.img-container {
+  max-width: 90%; /* Reduz o tamanho da imagem para 80% da largura do container */
+  text-align: center; /* Centraliza a imagem dentro do container */
+}
+
+.card-img-top {
+  max-width: 100%; /* Garante que a imagem não ultrapasse o limite do container */
+  height: auto; /* Mantém a proporção da imagem */
+  border-radius: 8px; /* Adiciona bordas arredondadas, opcional */
+  object-fit: cover; /* Ajusta a imagem para caber no espaço sem distorção */
+}
+
+
+.text-justify-custom {
+  text-align: justify;
+}
+
+.text-defaul {
+  font-size: 2.5rem;
+  font-family: "Vollkorn", serif;
+  font-style: italic;
+  font-weight: 700;
+  color:#fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 3s forwards;
+  opacity: 0;
+
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.options {
+  margin: 0 auto 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  transition: 0.5s ease-in-out;
+}
+
+.options:hover {
+  box-shadow: 5px 5px 15px 0px rgba(255, 249, 249, 0.712);
+  transform: scale(1.02);
+}
+
+
+.loading-link {
+  position: relative; /* Necessário para posicionar o pseudo-elemento */
+  color: #fff; /* Cor do link */
+  text-decoration: none; /* Remove o sublinhado padrão */
+  font-size: 18px; /* Tamanho do texto */
+  padding: 10px 15px; /* Espaço em volta do link */
+  display: inline-block; /* Para que o pseudo-elemento fique alinhado corretamente */
+  transition: color 0.3s; /* Transição de cor */
+}
+
+/* Estilo da barra de carregamento */
+.loading-link::after {
+  content: ''; /* Necessário para criar o pseudo-elemento */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0; /* Começa com 0 de largura */
+  height: 4px; /* Altura da barra */
+  background-color: #00c6fb; /* Cor da barra */
+  transition: width 0.8s ease; /* Transição da largura */
+}
+
+/* Efeito ao passar o mouse */
+.loading-link:hover::after {
+  width: 100%; /* A barra se expande ao passar o mouse */
 }
