@@ -1,5 +1,5 @@
 // URL da API
-const apiURL = 'https://projeto-integrador-back-end.vercel.app';
+const urlApi = 'https://projeto-integrador-back-end.vercel.app';
 
 // inputs formulario registrar saida
 const modelo = document.querySelector('#inputModeloSaida');
@@ -53,11 +53,11 @@ btnCadastrar.addEventListener('click', async(event)=> {
       }
     };
 
-    const resposta = await fetch(apiURL, requestOptions);
+    const resposta = await fetch(urlApi, requestOptions);
     const conteudo = await resposta.json();
 
     if(conteudo == 'Código de chave já cadastrado!'){
-      Swal.fire({
+      await Swal.fire({
         title: "Código de chave já cadastrado!",
         icon: "warning",
         confirmButtonColor: "#5bc0de",
@@ -66,15 +66,14 @@ btnCadastrar.addEventListener('click', async(event)=> {
     }
 
     if(conteudo == 'Chave cadastrada com sucesso!'){
-      Swal.fire({
+    await  Swal.fire({
         title: "Chave cadastrada com sucesso!",
         icon: "success",
         confirmButtonColor: "#5cb85c",
       });
 
-      setTimeout(()=> {
-        window.location.href = '../index.html';
-      }, 1500);  
+        window.location.href = './estoque.html';
+
     }
 
   } catch (error) {
@@ -95,11 +94,11 @@ confirmaSaida.addEventListener('click', async(event)=> {
       }
     }
 
-    const resposta = await fetch(`${apiURL}/${id}`, requestOptions);
+    const resposta = await fetch(`${urlApi}/${id}`, requestOptions);
     const conteudo = await resposta.json();
 
     if(conteudo == 'Chave não encontrada!'){
-      Swal.fire({
+     await Swal.fire({
         title: "Chave não encontrada!",
         icon: "warning",
         confirmButtonColor: "#0275d8",
@@ -117,15 +116,14 @@ confirmaSaida.addEventListener('click', async(event)=> {
     }
 
     if(conteudo == 'Chave excluida com sucesso!'){
-      Swal.fire({
+     await Swal.fire({
         title: "Chave excluída com sucesso!",
         icon: "success",
         confirmButtonColor: "#0275d8",
       });
 
-      setTimeout(()=> {
-        window.location.href = '../index.html';
-      }, 1500)
+        window.location.href = './estoque.html';
+
 
     };
 

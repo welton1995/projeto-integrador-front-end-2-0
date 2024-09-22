@@ -127,15 +127,13 @@ confirmaSaida.addEventListener('click', async(event) => {
     }
 
     if(conteudo == 'Saída realizada com sucesso!'){
-      Swal.fire({
-        title: "Saída realizada com sucesso!",
+     await Swal.fire({
+        title: `${quantidadeSaida.value} unidades retiradas do estoque!`,
         icon: "success",
         confirmButtonColor: "#5cb85c",
       });
 
-      setTimeout(()=> {
         window.location.href = './estoque.html';
-      }, 1500);
 
       return;
     }

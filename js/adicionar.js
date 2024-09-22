@@ -1,5 +1,5 @@
 // URL da API
-const apiURL = 'https://projeto-integrador-back-end.vercel.app';
+const ulrApi = 'https://projeto-integrador-back-end.vercel.app';
 
 // input e buttons - adiciona e remove
 const inputNumero = document.querySelector('#numero');
@@ -59,7 +59,7 @@ btnCadastrar.addEventListener('click', async(event)=> {
       }
     };
 
-    const resposta = await fetch(apiURL, requestOptions);
+    const resposta = await fetch(ulrApi, requestOptions);
     const conteudo = await resposta.json();
 
     if(conteudo == 'Código de chave já cadastrado!'){
@@ -79,7 +79,7 @@ btnCadastrar.addEventListener('click', async(event)=> {
       });
 
       setTimeout(()=> {
-        window.location.href = '../index.html';
+        window.location.href = './estoque.html';
       }, 1500);  
     }
 
@@ -115,20 +115,19 @@ confirmaEntrada.addEventListener('click', async(event) => {
       return;
     }
     
-    const resposta = await fetch(`${apiURL}/entradas/${id}`, requestOptions);
+    const resposta = await fetch(`${ulrApi}/entradas/${id}`, requestOptions);
     const conteudo = await resposta.json();
 
     if(conteudo == 'Entrada realizada com sucesso!'){
-      Swal.fire({
+      await Swal.fire({
         title: `${quantidadeSaida.value} unidades adicionadas ao estoque!`,
         icon: "success",
         confirmButtonColor: "#5cb85c",
       });
     }
 
-    setTimeout(()=> {
-      window.location.href = '../index.html';
-    }, 1500);   
+      window.location.href = './estoque.html';
+
   } catch (error) {
     return console.log(error);
   }

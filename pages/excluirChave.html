@@ -26,31 +26,79 @@
     <nav class="navbar navbar-expand-lg" style="background: linear-gradient(to top, #00c6fb 0%, #005bea 100%);">
       <div class="container-fluid">
         <a class="navbar-brand" href="../index.html">
-          <img src="../imgs/logoBranco.png" alt="" width="60px" class="animate__animated animate__fadeInRightBig logo">
+          <img src="../imgs/logoBranco.png" title="Chaveiro BS" width="60px" class="animate__animated animate__fadeInRightBig logo">
         </a>
+        
+        <!-- Botão para colapso do menu em telas pequenas -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+  
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- Menu Estoque com submenu colapsável -->
             <li class="nav-item">
-              <a class="nav-link active icon link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color: white;">Cadastrar <img src="../imgs/cadastro-nav.png" width="28px" class="icon"></a>
+              <a class="nav-link icon link" href="#" style="color: white; transition: 0.5s ease-in-out;" data-bs-toggle="collapse" data-bs-target="#submenuEstoque" aria-expanded="false" aria-controls="submenuEstoque">
+                Estoque <img src="../imgs/estoque-pronto.png" width="28px" class="icon">
+              </a>
+              <!-- Submenu oculto -->
+              <div class="collapse" id="submenuEstoque">
+                <ul class="navbar-nav flex-column ms-3">
+                  <li class="nav-item">
+                    <a class="nav-link icon submenu d-block" href="./estoque.html">• Saldo 
+                    <img src="../imgs/saldo.png" alt="adicionar" width="26px">
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link icon submenu d-block" href="../pages/entradas.html">• Entradas
+                      <img src="../imgs/adicionar-nav.png" alt="adicionar" width="26px">
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link icon submenu d-block" href="../pages/saidas.html">• Saídas
+                      <img src="../imgs/remover-nav.png" alt="adicionar" width="26px">
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link icon submenu d-block" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">• Cadastrar Chave
+                      <img src="../imgs/cadastro-nav.png" alt="adicionar" width="26px">
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </li>
+  
+            <!-- Menu Serviços com submenu colapsável -->
             <li class="nav-item">
-              <a class="nav-link active icon link" href="./entradas.html" style="color: white;">Entradas <img src="../imgs/adicionar-nav.png" width="28px" class="icon"></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link icon link" href="./saidas.html" style="text-decoration: none; color: white">Saidas <img src="../imgs/remover-nav.png" width="28px" class="icon"></a>
+              <a class="nav-link active icon link" href="#" data-bs-toggle="collapse" data-bs-target="#submenuEstoque1" style="color: white; transition: 0.5s ease-in-out;">
+                Serviços <img src="../imgs/servico.png" width="28px" class="icon">
+              </a>
+              <div class="collapse" id="submenuEstoque1">
+                <ul class="navbar-nav flex-column ms-3">
+                  <li class="nav-item">
+                    <a class="nav-link icon submenu d-block" href="../pages/servicos.html">• Resumo 
+                      <img src="../imgs/resumo.png" alt="adicionar" width="26px">
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link icon submenu d-block" href="#" data-bs-toggle="modal" data-bs-target="#servicoModal">• Cadastrar Serviço
+                      <img src="../imgs/servico-nav.png" alt="adicionar" width="26px">
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
+  
+          <!-- Barra de pesquisa -->
           <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" id="buscaCodigo" placeholder="Pesquisar código" aria-label="Search">
-            <button class="btn btn-primary" type="submit" id="btnBuscaCodigo">Pesquisar</button>
+            <input class="form-control me-2" type="search" id="buscaCodigo" maxlength="5" placeholder="Pesquisar código" aria-label="Search">
+            <a class="btn btn-primary loading-link" type="submit" id="btnBuscaCodigo">Pesquisar</a>
           </form>
         </div>
       </div>
     </nav>
-  </header>
+  </header>   
   
 <main class="container mt-4 d-flex align-items-center justify-content-center" >
     <div class="row container d-flex align-items-center justify-content-center" style="border-radius: 16px; background: linear-gradient(to top, #005bea 0%, #00c6fb) 100%;">
@@ -81,15 +129,15 @@
            </div>
 
             <div class="d-flex justify-content-center">
-              <a href="../index.html" class="btn btn-secondary inputConfirmaSaida">Cancelar</a>
+              <a href="./estoque.html" class="btn btn-secondary inputConfirmaSaida">Cancelar</a>
               <button class="btn btn-success inputConfirmaSaida"  id="inputConfirmaSaida">Confimar</button>
             </div>
         </form>
       </div>
     </div>
 
-         <!-- Cadastrar modal -->
-         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Cadastrar modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -115,9 +163,57 @@
               </div>
             </div>
           </div>
-          </div>
+    </div>
 
-
+    <!-- Servicos Modal -->
+    <div class="modal fade" id="servicoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><strong>Cadastrar Serviços</strong>
+            <img src="../imgs/servico-nav.png" width="32px">          
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <form class="justify-content-center justify-content-center">
+  
+            <div class="d-flex align-items-center justify-content-center">
+              <select class="form-select inputsRegistrarSaida" id="servicoTipo" aria-label="Tipo de transação">
+                <option selected>Selecione um tipo</option>
+                <option value="Serviço">Serviço</option>
+                <option value="Venda">Venda</option>
+              </select>
+            </div>
+  
+            <div class=" d-flex align-items-center justify-content-center">
+              <input type="number" class="form-control inputsRegistrarSaida" id="servicoPreco" placeholder="Preço (R$)">
+            </div>
+            <div class=" d-flex align-items-center justify-content-center">
+              <input type="number" class="form-control inputsRegistrarSaida" id="servicoCusto" placeholder="Custo (R$)">
+            </div>
+            <div class=" d-flex align-items-center justify-content-center">
+              <input type="number" class="form-control inputsRegistrarSaida" id="servicoQuantidade" placeholder="Quantidade">
+            </div>
+            <div class=" d-flex align-items-center justify-content-center">
+              <input type="datetime-local" class="form-control inputsRegistrarSaida" id="servicoData" placeholder="Data">
+            </div>
+            <div class=" d-flex align-items-center justify-content-center">
+              <textarea class="form-control inputsRegistrarSaida" id="servicoObservacao" placeholder="Observação"></textarea>
+            </div>
+            <div class="d-flex align-items-center justify-content-center">
+              <img src="../imgs/Loading.gif" width="32px" id="loading" style="display: none;">
+            </div>
+  
+          </form>
+        </div>
+        <div class="modal-footer d-flex align-items-center justify-content-center">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success" id="btnServicoCadastrar">Cadastrar</button>
+        </div>
+      </div>
+        </div>
+    </div>
 
 </main>
 
@@ -129,5 +225,6 @@
 
 <script src="../js/pesquisarCodigo.js" defer></script>
 <script src="../js/excluir.js" defer></script>
+<script src="../js/servicos.js" defer></script>
 </body>
 </html>
