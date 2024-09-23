@@ -18,22 +18,25 @@
 <body>
   
   <header>
-    <nav class="navbar navbar-expand-lg" style="background: linear-gradient(to top, #00c6fb 0%, #005bea 100%);">
+    <nav class="navbar navbar-expand-lg header">
       <div class="container-fluid">
         <a class="navbar-brand" href="../index.html">
           <img src="../imgs/logoBranco.png" title="Chaveiro BS" width="60px" class="animate__animated animate__fadeInRightBig logo">
         </a>
         
+        <!-- Botão para colapso do menu em telas pequenas -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
   
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- Menu Estoque com submenu colapsável -->
             <li class="nav-item">
               <a class="nav-link icon link" href="#" style="color: white; transition: 0.5s ease-in-out;" data-bs-toggle="collapse" data-bs-target="#submenuEstoque" aria-expanded="false" aria-controls="submenuEstoque">
                 Estoque <img src="../imgs/estoque-pronto.png" width="28px" class="icon">
               </a>
+              <!-- Submenu oculto -->
               <div class="collapse" id="submenuEstoque">
                 <ul class="navbar-nav flex-column ms-3">
                   <li class="nav-item">
@@ -42,12 +45,12 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link icon submenu d-block" href="./entradas.html">• Entradas
+                    <a class="nav-link icon submenu d-block" href="../pages/entradas.html">• Entradas
                       <img src="../imgs/adicionar-nav.png" alt="adicionar" width="26px">
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link icon submenu d-block" href="./saidas.html">• Saídas
+                    <a class="nav-link icon submenu d-block" href="../pages/saidas.html">• Saídas
                       <img src="../imgs/remover-nav.png" alt="adicionar" width="26px">
                     </a>
                   </li>
@@ -59,6 +62,8 @@
                 </ul>
               </div>
             </li>
+  
+            <!-- Menu Serviços com submenu colapsável -->
             <li class="nav-item">
               <a class="nav-link active icon link" href="#" data-bs-toggle="collapse" data-bs-target="#submenuEstoque1" style="color: white; transition: 0.5s ease-in-out;">
                 Serviços <img src="../imgs/servico.png" width="28px" class="icon">
@@ -80,17 +85,20 @@
             </li>
           </ul>
   
+          <!-- Barra de pesquisa -->
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" id="buscaCodigo" maxlength="5" placeholder="Pesquisar código" aria-label="Search">
-            <a class="btn btn-primary loading-link" type="submit" id="btnBuscaCodigo">Pesquisar</a>
+            <button class="btn btn-primary loading-link btns" type="submit" id="btnBuscaCodigo">Pesquisar</button>
+            <!-- Botão de modo noturno -->
+            <a id="toggleDarkMode" style="margin: 0 0 0 12px;" class="btn btn-primary loading-link btns">🌙</a>
           </form>
         </div>
       </div>
     </nav>
-  </header>
+  </header> 
 
-<main class="container mt-4 d-flex flex-column align-items-center">
-    <div class="row w-100 d-flex align-items-start justify-content-between" style="border-radius: 16px; background: linear-gradient(to top, #005bea 0%, #00c6fb) 100%;">
+  <main class="container container-default mt-4 d-flex align-items-center justify-content-center" >
+    <div class="row container container-default d-flex align-items-center justify-content-center">
       <div class="pagina">
         <div class="align-items-start">
           <h1 class="sombra"><strong>Serviços</strong>
@@ -224,6 +232,6 @@
 <script src="../js/geradorPDF.js" defer></script>
 <script src="../js/app.js" defer></script>
 <script src="../js/servicos.js" defer></script>
-<script src="./js/modoNoturno.js" defer></script>
+<script src="../js/modoNoturno.js" defer></script>
 </body>
 </html>
