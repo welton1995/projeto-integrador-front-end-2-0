@@ -27,7 +27,7 @@
 <body>
 
   <header>
-    <nav class="navbar navbar-expand-lg" style="background: linear-gradient(to top, #00c6fb 0%, #005bea 100%);">
+    <nav class="navbar navbar-expand-lg header">
       <div class="container-fluid">
         <a class="navbar-brand" href="../index.html">
           <img src="../imgs/logoBranco.png" title="Chaveiro BS" width="60px" class="animate__animated animate__fadeInRightBig logo">
@@ -97,7 +97,9 @@
           <!-- Barra de pesquisa -->
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" id="buscaCodigo" maxlength="5" placeholder="Pesquisar código" aria-label="Search">
-            <a class="btn btn-primary loading-link" type="submit" id="btnBuscaCodigo">Pesquisar</a>
+            <button class="btn btn-primary loading-link btns" type="submit" id="btnBuscaCodigo">Pesquisar</button>
+            <!-- Botão de modo noturno -->
+            <a id="toggleDarkMode" style="margin: 0 0 0 12px;" class="btn btn-primary loading-link btns">🌙</a>
           </form>
         </div>
       </div>
@@ -106,7 +108,7 @@
 
 <main class="container mt-4 d-flex align-items-center justify-content-center" >
     
-  <div class="row container d-flex align-items-center justify-content-center" style="border-radius: 16px; background: linear-gradient(to top, #005bea 0%, #00c6fb) 100%;">
+  <div class="row container container-default d-flex align-items-center justify-content-center">
       <div class="pagina">
         <div class="align-items-start">
           <h1 class="sombra"><strong>Entradas</strong>
@@ -141,7 +143,7 @@
           <img class="seta" src="../imgs/seta.png" title='Visualizar mais' style="margin: 0.5rem; width: 18px;">
         </div>
         <div class="d-flex align-items-center justify-content-center">
-          <a href="./estoque.html" class="btn botao">Voltar</a>
+          <a href="./estoque.html" class="btn btn-secondary btns">Voltar</a>
         </div>
         </div>
       </div>
@@ -239,6 +241,6 @@
 <script src="../js/geradorPDF.js" defer></script>
 <script src="../js/entradas.js" defer></script>
 <script src="../js/servicos.js" defer></script>
-<script src="./js/modoNoturno.js" defer></script>
+<script src="../js/modoNoturno.js" defer></script>
 </body>
 </html>
