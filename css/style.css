@@ -169,7 +169,6 @@ tr:hover td {
   background-color: #92ddf1;
   transform: translate(5px, -5px);
   border-radius: 5px;
-
 }
 
 /* Barra de navegação */
@@ -193,7 +192,7 @@ tr:hover td {
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
-  background: #00c6fb;
+  background: #313333;
  /* Cor do botão de rolagem horizontal */
 }
 
