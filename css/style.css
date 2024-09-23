@@ -6,6 +6,12 @@ a {
   margin: .25rem
 }
 
+.body-dark {
+  background-color: #212529;
+  color: #899095;
+
+}
+
 .footer {
   background: linear-gradient(#00c6fb 0%, #005bea 100%);
   color: white;
@@ -17,14 +23,33 @@ a {
 }
 
 .footer-dark {
-  background: linear-gradient(to top, #000000, #121212);
-
+  background: linear-gradient(#585858 0%, #000 100%);
   color: white;
   padding: 10px 0;
   text-align: center;
   position: relative;
   bottom: 1px;
   margin-top: 60px;
+}
+
+.header {
+  background: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+  color: #fff;
+}
+
+.header-dark {
+  background: linear-gradient(#000 0%, #585858 100%);
+}
+
+
+.container-default {
+  border-radius: 16px;
+  background: linear-gradient(to top, #005bea 0%, #00c6fb) 100%;
+}
+
+.container-default-dark {
+  background: linear-gradient(#585858 0%, #222121 100%);
+
 }
 
 .pagina {
@@ -154,7 +179,7 @@ tr:hover td {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #00c6fb;
+  background: #313333;
    /* Cor do botão de rolagem */
 }
 
@@ -196,9 +221,6 @@ th , td{
     overflow: hidden;
     text-overflow: ellipsis; /* Opcional */
 }
-
-
-
 
 
 @keyframes setaAnimacao {
@@ -301,4 +323,20 @@ th , td{
   width: 100%; /* A barra se expande ao passar o mouse */
 }
 
+
+
+/* Estilo do botão no modo dark */
+.btn-dark-mode {
+  background-color: #1C1C1C; /* Fundo escuro */
+  color: #E0E0E0; /* Texto claro */
+  border: 1px solid #333; /* Borda discreta */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transições suaves */
+}
+
+/* Estilo ao passar o mouse */
+.btn-dark-mode:hover {
+  background-color: #333; /* Fundo mais claro ao passar o mouse */
+  color: #FFFFFF; /* Texto mais claro */
+  border-color: #444; /* Borda mais clara */
+}
 
