@@ -339,3 +339,9 @@ th , td{
   border-color: #444; /* Borda mais clara */
 }
 
+#loading {
+  display: none;
+  align-items: center;
+  text-align: center;
+}
+

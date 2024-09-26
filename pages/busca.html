@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.min.css" rel="stylesheet">
   
-  <title>Gestão de Estoque</title>
+  <title>Pesquisar Serviços</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -100,19 +100,41 @@
     <div class="row container container-default d-flex align-items-center justify-content-center">
       <div class="pagina">
         <div class="align-items-start">
-          <h1 class="sombra"><strong>Serviços</strong>
-            <img src="../imgs/servico.png" width="30px" class="sombra">
+          <h1 class="sombra"><strong>Pesquisar</strong>
+            <img src="../imgs/search.png" width="36px" class="sombra">
           </h1>
         </div>
         <div class="align-items-end">
           <h1 class="sombra">
-            <a href="./busca.html">
-              <img src="../imgs/search.png" title="Pesquisar serviços" width="30px" class="icon sombra">
-            </a>
-            <img src="../imgs/pdf.png" width="30px" id="generate-pdf" class="icon sombra">
+            <img src="../imgs/pdf.png" width="36px" id="generate-pdf" class="icon sombra">
           </h1>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <form id="searchForm" class="p-4 m-4 border rounded"  style="background-color: rgba(0, 0, 0, 0.158);">
+
+            <div class="mb-3">
+              <label for="tipo" class="form-label fw-bold" style="color: #ffffff">Tipo de Serviço</label>
+              <select class="form-select" id="tipo" required>
+                <option value="">Selecione</option>
+                <option value="Serviço">Serviço</option>
+                <option value="Venda">Venda</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="dataInicio" class="form-label fw-bold" style="color: #ffffff">Data de Início</label>
+              <input type="date" class="form-control" id="dataInicio" required>
+            </div>
+            <div class="mb-3">
+              <label for="dataFim" class="form-label fw-bold" style="color: #ffffff">Data de Fim</label>
+              <input type="date" class="form-control" id="dataFim" required>
+            </div>
+            <button id="btnFormulario" class="btn btn-secondary">Buscar</button>
+          </form>
+        </div>
+
       <!-- Tabela -->
       <div class="col-12">
         <div id="conteudo" class="table-responsive">
@@ -131,7 +153,9 @@
                 </tr>
             </thead>
             <tbody id="servicos">
-
+              <p class="text-center">
+                <img src="../imgs/Loading.gif" id="loading" width="28px">
+              </p>
             </tbody>
           </table>
           <div class="d-flex justify-content-end align-items-end">
@@ -233,7 +257,8 @@
 <script src="../js/pesquisarCodigo.js" defer></script>
 <script src="../js/geradorPDF.js" defer></script>
 <script src="../js/app.js" defer></script>
-<script src="../js/servicos.js" defer></script>
+<!-- <script src="../js/servicos.js" defer></script> -->
 <script src="../js/modoNoturno.js" defer></script>
+<script src="../js/pesquisar.js" defer></script>
 </body>
 </html>

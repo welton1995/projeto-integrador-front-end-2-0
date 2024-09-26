@@ -109,7 +109,7 @@ btnCadastrarServico.addEventListener('click', async () => {
       });
 
       window.location.href = `${address}/pages/servicos.html`;
-      
+
     } else {
       await Swal.fire({
         title: "Erro ao cadastrar serviço!",
