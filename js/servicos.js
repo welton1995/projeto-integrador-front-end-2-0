@@ -64,31 +64,30 @@ listarServicos();
 // Cadastrar Servico
 btnCadastrarServico.addEventListener('click', async () => {
   try {
-    if(tipo.value == 'Selecione um tipo' || !tipo.value){
+    if (tipo.value == 'Selecione um tipo' || !tipo.value) {
       return tipo.focus();
     }
-    if(!preco.value){
+    if (!preco.value) {
       return preco.focus();
     }
-    if(!custo.value){
+    if (!custo.value) {
       return custo.focus();
     }
-    if(!quantidadeServico.value){
+    if (!quantidadeServico.value) {
       return quantidadeServico.focus();
     }
-    if(!hora.value){
+    if (!hora.value) {
       return hora.focus();
     }
 
-
     const raw = {
       tipo: tipo.value,
-      preco: preco.value,
-      custo: custo.value,
-      quantidade: quantidadeServico.value,
-      hora: hora.value,
+      preco: parseFloat(preco.value),
+      custo: parseFloat(custo.value),
+      quantidade: parseInt(quantidadeServico.value),
+      data: new Date(horaModal.value),
       observacao: observacao.value,
-    }
+    };
 
     const requestOptions = {
       method: 'POST',
@@ -102,14 +101,23 @@ btnCadastrarServico.addEventListener('click', async () => {
     const resposta = await fetch(`${apiTeste}/servicos`, requestOptions);
     const conteudo = await resposta.json();
 
-    await Swal.fire({
-      title: "Serviço cadastrado com sucesso!",
-      icon: "success",
-      confirmButtonColor: "#5cb85c",
-    });
+    if (resposta.ok) {
+      await Swal.fire({
+        title: "Serviço cadastrado com sucesso!",
+        icon: "success",
+        confirmButtonColor: "#5cb85c",
+      });
 
-    window.location.href = `${address}/pages/servicos.html`;
-
+      window.location.href = `${address}/pages/servicos.html`;
+      
+    } else {
+      await Swal.fire({
+        title: "Erro ao cadastrar serviço!",
+        text: conteudo.message || "Verifique os dados e tente novamente.",
+        icon: "error",
+        confirmButtonColor: "#d9534f",
+      });
+    }
   } catch (error) {
     console.log(error);
   }

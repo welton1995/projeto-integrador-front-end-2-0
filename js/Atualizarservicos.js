@@ -35,7 +35,7 @@ precoServico.value = precoURL;
 custoServico.value = custoURL;
 quantidadeServicoAtualizar.value = quantidadeURL;
 observacaoServico.value = observacaoURL;
-horaServico.value = new Date(horaURL).toISOString().slice(0, 16);
+// horaServico.value = new Date(horaURL).toISOString().slice(0, 16);
 observacaoServico.value = observacaoURL;
 
 // Atualizar
@@ -63,7 +63,7 @@ btnAtualizar.addEventListener('click', async (e) => {
       preco: precoServico.value,
       custo: custoServico.value,
       quantidade: quantidadeServicoAtualizar.value,
-      hora: horaServico.value,
+      data: new Date(horaServico.value),
       observacao: observacaoServico.value,
     }
 
@@ -86,11 +86,8 @@ btnAtualizar.addEventListener('click', async (e) => {
         confirmButtonColor: "#0275d8",
       });
     }
-
+    console.log(conteudo)
     window.location.href = './servicos.html';
-
-    console.log(conteudo);
-
     
   } catch (error) {
     console.log(error);
@@ -122,7 +119,7 @@ btnCadastrarServicoModal.addEventListener('click', async () => {
       preco: precoModal.value,
       custo: custoModal.value,
       quantidade: quantidadeServicoModal.value,
-      hora: horaModal.value,
+      data: new Date(horaModal.value),
       observacao: observacaoModal.value,
     }
 
@@ -145,7 +142,7 @@ btnCadastrarServicoModal.addEventListener('click', async () => {
       icon: "success",
       confirmButtonColor: "#5cb85c",
     });
-
+    return;
     window.location.href = `${address}/pages/servicos.html`;
 
   } catch (error) {
