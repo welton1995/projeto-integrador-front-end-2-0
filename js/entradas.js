@@ -6,10 +6,12 @@ const codigoCadastrar = document.querySelector('#inputCodigoCadastrar');
 const quantidadeCadastrar = document.querySelector('#inputQuantidadeCadastrar');
 const btnCadastrar = document.querySelector('#btnCadastrar');
 const tabela = document.querySelector('#tabela');
+const loadingImg = document.querySelector('#loading');
 
 // Lista todas chaves cadastradas
 const buscaRegistros = async () => {
   try {
+    loadingImg.style.display = 'inline-block';
       const requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -25,6 +27,7 @@ const buscaRegistros = async () => {
         <td colspan="5" class="text-center">Nenhuma entrada realizada.</td>
       `
       tabela.appendChild(tr);
+      loadingImg.style.display = 'none';
       return;
     }
 
@@ -45,6 +48,7 @@ const buscaRegistros = async () => {
       </td>
       `
       tabela.appendChild(tr); 
+    loadingImg.style.display = 'none';
     });
 
   } catch (error) {

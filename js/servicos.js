@@ -1,6 +1,7 @@
 const apiTeste = 'https://projeto-integrador-back-end-2-0.vercel.app';
 const address = 'https://projeto-integrador-front-end-2-0.vercel.app';
 const tabelaServicos = document.querySelector('#servicos');
+const loadingImg = document.querySelector('#loading');
 
 // inputs cadastro
 const tipo = document.querySelector('#servicoTipo');
@@ -25,6 +26,7 @@ const btnCadastrarServicoModal = document.querySelector('#btnServicoCadastrar');
 // Listar Servicos
 const listarServicos = async() => {
   try {
+    loadingImg.style.display = 'inline-block';
     const requestOptions = {
       method: "GET",
       redirect: "follow"
@@ -50,11 +52,13 @@ const listarServicos = async() => {
       `;
 
       tabelaServicos.appendChild(tr);
+      loadingImg.style.display = 'none';
 
     });
 
     console.log(conteudo.servicos );
   } catch (error) {
+    loadingImg.style.display = 'none';
     console.log(error);
   }
 }
@@ -79,6 +83,9 @@ btnCadastrarServico.addEventListener('click', async () => {
     if (!hora.value) {
       return hora.focus();
     }
+
+    loadingImg.style.display = 'block';
+
 
     const raw = {
       tipo: tipo.value,
@@ -119,6 +126,7 @@ btnCadastrarServico.addEventListener('click', async () => {
       });
     }
   } catch (error) {
+    loadingImg.style.display = 'none';
     console.log(error);
   }
 });
