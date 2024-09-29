@@ -5,10 +5,10 @@ const nomeRelatório = data.toLocaleDateString("pt-BR", { year:'numeric', month:
 
 btnGenerate.addEventListener('click', async ()=> {
   const options = {
-  margin: [10, 10, 10, 10],
+  margin: [5, 5, 5, 5],
   filename: `Relatório_Estoque_${nomeRelatório}.pdf`,
   html2canvas: {scale: 2},
-  jsPDF: {unit: 'mm', format: 'a4', orientation: 'portrait'}
+  jsPDF: {unit: 'mm', format: 'a4', orientation: 'landscape'}
 }
 
 await Swal.fire({
