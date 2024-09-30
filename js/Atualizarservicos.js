@@ -1,5 +1,5 @@
 const apiServico = 'https://projeto-integrador-back-end-2-0.vercel.app';
-const address = 'https://projeto-integrador-front-end-2-0.vercel.app';
+const address = 'https://bschaveiro.vercel.app';
 
 
 const params = new URLSearchParams(window.location.search);
