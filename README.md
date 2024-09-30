@@ -69,7 +69,7 @@ As tecnologias utilizadas nesse projeto foram:
 
 ## :checkered_flag: Conheça o projeto
 
-Apenas <a href="https://gerenciadordeestoque.vercel.app/">clique aqui</a> para ver como ficou!.
+Apenas <a href="https://bschaveiro.vercel.app/">clique aqui</a> para ver como ficou!.
 
 ## 👨‍🎓 Alunos
 <p align='justify'>
