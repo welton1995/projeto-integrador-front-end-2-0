@@ -87,7 +87,6 @@ const listarServicos = async() => {
 
 listarServicos();
 
-
 // Cadastrar Servico
 btnCadastrarServico.addEventListener('click', async () => {
   try {

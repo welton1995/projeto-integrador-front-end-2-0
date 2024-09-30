@@ -1,107 +1,174 @@
-const apiTeste1 = 'https://projeto-integrador-back-end-2-0.vercel.app';
+const apiTeste = 'https://projeto-integrador-back-end-2-0.vercel.app';
+const address = 'https://bschaveiro.vercel.app';
+const tabelaServicos = document.querySelector('#servicos');
+const loadingImg = document.querySelector('#loading');
 
+// Inputs de busca
 const tipoFormulario = document.querySelector('#tipo');
 const inicioFormulario = document.querySelector('#dataInicio');
 const fimFormulario = document.querySelector('#dataFim');
 const btnFormulario = document.querySelector('#btnFormulario');
-const tabela = document.querySelector('#servicos');
 const loadingImg1 = document.querySelector('#loading');
 
+// Inputs de cadastro
+const tipo = document.querySelector('#servicoTipo');
+const preco = document.querySelector('#servicoPreco');
+const custo = document.querySelector('#servicoCusto');
+const quantidadeServico = document.querySelector('#servicoQuantidade');
+const observacao = document.querySelector('#servicoObservacao');
+const hora = document.querySelector('#servicoData');
+const btnCadastrarServico = document.querySelector('#btnServicoCadastrar');
+
 btnFormulario.addEventListener('click', async (e) => {
-  try {
     e.preventDefault();
-    tabela.innerHTML = ``;
+    tabelaServicos.innerHTML = '';
 
-    if (!tipoFormulario.value || tipoFormulario.value === '') {
-      return tipoFormulario.focus();
+    if (!tipoFormulario.value) {
+        return tipoFormulario.focus();
     }
-
-    if (!inicioFormulario.value || inicioFormulario.value === '') {
-      return inicioFormulario.focus();
+    if (!inicioFormulario.value) {
+        return inicioFormulario.focus();
     }
-
-    if (!fimFormulario.value || fimFormulario.value === '') {
-      return fimFormulario.focus();
+    if (!fimFormulario.value) {
+        return fimFormulario.focus();
     }
 
     loadingImg1.style.display = 'inline-block';
 
     const raw = {
-      tipo: tipoFormulario.value,
-      dataInicio: inicioFormulario.value,
-      dataFim: fimFormulario.value
+        tipo: tipoFormulario.value,
+        dataInicio: inicioFormulario.value,
+        dataFim: fimFormulario.value
     };
 
-    const requestOptions = {
-      method: 'POST',
-      redirect: 'follow',
-      body: JSON.stringify(raw),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    };
+    try {
+        const response = await fetch(`${apiTeste}/servicos/busca-periodo`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(raw)
+        });
 
-    const resposta = await fetch(`${apiTeste1}/servicos/busca-periodo`, requestOptions);
-    const conteudo = await resposta.json();
+        const conteudo = await response.json();
 
-    console.log(conteudo);
+        if (!response.ok) {
+            throw new Error(conteudo.message || "Erro ao buscar serviços.");
+        }
 
-    if (conteudo.message === 'Nenhum serviço ou venda encontrado para o tipo e período especificados!') {
-      await Swal.fire({
-        title: "Nenhum serviço ou venda encontrado no período especificado!",
-        icon: "warning",
-        confirmButtonColor: "#5cb85c",
-      });
+        if (conteudo.message) {
+            await Swal.fire({
+                title: conteudo.message,
+                icon: "warning",
+                confirmButtonColor: "#5cb85c",
+            });
+            return;
+        }
 
-      loadingImg1.style.display = 'none';
-      return;
+        let totalLucro = 0;
+        let totalPreco = 0;
+        let totalCusto = 0;
+
+        conteudo.servicos.forEach((servico) => {
+            const tr = document.createElement('tr');
+            const lucro = (servico.preco - servico.custo) * servico.quantidade;
+
+            totalLucro += lucro;
+            totalPreco += servico.preco * servico.quantidade;
+            totalCusto += servico.custo * servico.quantidade;
+
+            tr.innerHTML = `
+                <td class="text-center">${servico.tipo}</td>
+                <td class="text-center">${(servico.preco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+                <td class="text-center">${(servico.custo).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+                <td class="text-center">${servico.quantidade}</td>
+                <td class="text-center">${lucro.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+                <td class="text-center">${(((servico.preco - servico.custo) / servico.custo) * 100).toFixed(2)} %</td>
+                <td class="text-center">${new Date(servico.data).toLocaleDateString('pt-BR')}</td>
+                <td class="text-center">${servico.observacao}</td>
+                <td class="text-center">
+                    <a href="./excluirServico.html?id=${servico._id}" title="Excluir"><img src="../imgs/lixeira.png" width="20px"></a>
+                    <a href="./editarServico.html?id=${servico._id}" title="Editar"><img src="../imgs/editar.png" width="20px"></a>
+                </td>
+            `;
+
+            tabelaServicos.appendChild(tr);
+        });
+
+        const trTotal = document.createElement('tr');
+        trTotal.innerHTML = `
+            <td class="text-center"><strong>Total:</strong></td>
+            <td class="text-center"><strong>${totalPreco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong></td>
+            <td class="text-center"><strong>${totalCusto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong></td>
+            <td class="text-center"></td>
+            <td class="text-center"><strong>${totalLucro.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong></td>
+            <td colspan="5"></td>
+        `;
+
+        tabelaServicos.appendChild(trTotal);
+    } catch (error) {
+        console.error(error);
+        await Swal.fire({
+            title: "Erro",
+            text: error.message,
+            icon: "error",
+            confirmButtonColor: "#d9534f",
+        });
+    } finally {
+        loadingImg1.style.display = 'none';
     }
+});
 
-    let totalLucro = 0; 
-    let totalPreco = 0; 
-    let totalCusto = 0; 
+// Cadastrar Serviço
+btnCadastrarServico.addEventListener('click', async () => {
+    try {
+        if (tipo.value === 'Selecione um tipo' || !tipo.value) {
+            return tipo.focus();
+        }
+        if (!preco.value || !custo.value || !quantidadeServico.value || !hora.value) {
+            return;
+        }
 
-    conteudo.servicos.reverse().forEach((servico) => {
-      const tr = document.createElement('tr');
-      const lucro = (servico.preco - servico.custo) * servico.quantidade;
+        loadingImg.style.display = 'block';
 
-      totalLucro += lucro; 
-      totalPreco += servico.preco * servico.quantidade; 
-      totalCusto += servico.custo * servico.quantidade;
+        const raw = {
+            tipo: tipo.value,
+            preco: parseFloat(preco.value),
+            custo: parseFloat(custo.value),
+            quantidade: parseInt(quantidadeServico.value),
+            data: new Date(hora.value),
+            observacao: observacao.value,
+        };
 
-      tr.innerHTML = `
-        <td class="text-center align-middle" title="Tipo do serviço realizado.">${servico.tipo}</td>
-        <td class="text-center align-middle" title="Valor cobrado pelo serviço.">${(servico.preco).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>
-        <td class="text-center align-middle" title="Custo para realizar o serviço.">${(servico.custo).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>
-        <td class="text-center align-middle" title="Quantidade realizado(a).">${servico.quantidade}</td>
-        <td class="text-center align-middle" title="Lucro ganho pelo serviço realizado.">${lucro.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>
-        <td class="text-center align-middle" title="Porcentagem de lucro ganha no serviço realizado. (Por unidade)">${(((servico.preco - servico.custo) / servico.custo) * 100).toFixed(2)} %</td>
-        <td class="text-center align-middle" title="Data que o serviço foi realizado.">${new Date(servico.data).toLocaleDateString('pt-BR')}</td>
-        <td class="text-center align-middle" title="Observações.">${servico.observacao}</td>
-        <td class="text-center align-middle">
-          <a href="./excluirServico.html?id=${servico._id}&tipo=${servico.tipo}&preco=${servico.preco}&custo=${servico.custo}&quantidade=${servico.quantidade}&data=${servico.data}&observacao=${servico.observacao}" title="Excluir registro."><img src="../imgs/lixeira.png" width="20px"></a>
-          <a href="./editarServico.html?id=${servico._id}&tipo=${servico.tipo}&preco=${servico.preco}&custo=${servico.custo}&quantidade=${servico.quantidade}&data=${servico.data}&observacao=${servico.observacao}" title="Editar registro."><img src="../imgs/editar.png" width="20px"></a>
-        </td>
-      `;
+        const response = await fetch(`${apiTeste}/servicos`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(raw)
+        });
 
-      tabela.appendChild(tr);
-    });
+        const conteudo = await response.json();
 
-    const trTotal = document.createElement('tr');
-    trTotal.innerHTML = `
-      <td class="text-center align-middle" style="border-top: 1px solid black"><strong>Total:</strong></td>
-      <td class="text-center align-middle"><strong>${totalPreco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong></td>
-      <td class="text-center align-middle"><strong>${totalCusto.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong></td>
-      <td class="text-center align-middle"><strong></strong></td>
-      <td class="text-center align-middle"><strong>${totalLucro.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong></td>
-      <td colspan="5"></td>
-    `;
-    
-    tabela.appendChild(trTotal);
-    
-    loadingImg1.style.display = 'none';
-  } catch (error) {
-    console.log(error);
-    loadingImg1.style.display = 'none';
-  }
+        if (!response.ok) {
+            throw new Error(conteudo.message || "Erro ao cadastrar serviço.");
+        }
+
+        await Swal.fire({
+            title: "Serviço cadastrado com sucesso!",
+            icon: "success",
+            confirmButtonColor: "#5cb85c",
+        });
+
+        window.location.href = `${address}/pages/servicos.html`;
+    } catch (error) {
+        loadingImg.style.display = 'none';
+        console.error(error);
+        await Swal.fire({
+            title: "Erro",
+            text: error.message,
+            icon: "error",
+            confirmButtonColor: "#d9534f",
+        });
+    }
 });
