@@ -1,6 +1,6 @@
 // URL da API
 const urlApi = 'https://projeto-integrador-back-end.vercel.app';
-const addressOk = 'https://projeto-integrador-front-end-2-0.vercel.app'
+const addressOk = 'https://bschaveiro.vercel.app'
 // inputs para cadastrar chave
 const modeloCadastrar = document.querySelector('#inputModeloCadastrar');
 const codigoCadastrar = document.querySelector('#inputCodigoCadastrar');
@@ -103,7 +103,7 @@ btnCadastrar.addEventListener('click', async(event)=> {
     loading.style.display = 'none';
     }
 
-      window.location.href = `${addressOk}/index.html`;
+      window.location.href = `${addressOk}/pages/estoque.html`;
 
   } catch (error) {
     return console.log(error);
