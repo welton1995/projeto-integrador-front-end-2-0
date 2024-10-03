@@ -30,9 +30,9 @@
 
 ## :dart: Sobre
 <p align="justify">
-O Sistema de Gerenciamento de Estoque <i>CHAVEIRO BS</i>, é um projeto desenvolvido pelos alunos do curso de Bacharelado em Tecnologia da Infomação do Polo de Itaquaquecetuba para a disciplina de P.I. (Projeto Integrador). O P.I. trata-se de uma atividade curricular obrigatória que consiste na resolução de um problema real contextualizado na profissão em que o curso está inserido. A cada semestre o tema do PI muda, mas a metodologia continua a mesma!
+O Sistema de Gerenciamento de Estoque <i>CHAVEIRO BS</i>, é um projeto desenvolvido pelos alunos do curso de Bacharelado em Tecnologia da Infomação do Polo de Itaquaquecetuba para a disciplina de PI II (Projeto Integrador II). O PI II trata-se de uma atividade curricular obrigatória que consiste na resolução de um problema real contextualizado na profissão em que o curso está inserido. A cada semestre o tema do PI muda, mas a metodologia continua a mesma!
 
-Em grupo, os alunos devem delimitar um problema a partir de um tema norteador, propondo uma solução aplicável, usando os conhecimentos estudados nas disciplinas cursadas até o momento. Ao longo do semestre, terão autonomia de aprendizagem no que tange à pesquisa, à organização e ao desenvolvimento do projeto, com suporte e acompanhamento periódico do(a) orientador(a) de PI.
+Em grupo, os alunos devem delimitar um problema a partir de um tema norteador, propondo uma solução aplicável, usando os conhecimentos estudados nas disciplinas cursadas até o momento. Ao longo do semestre, terão autonomia de aprendizagem no que tange à pesquisa, à organização e ao desenvolvimento do projeto, com suporte e acompanhamento periódico do(a) orientador(a) de PI II.
 </p>
 
 ## 💪 Objetivos
@@ -43,7 +43,11 @@ Em grupo, os alunos devem delimitar um problema a partir de um tema norteador, p
 :heavy_check_mark: Dar entrada em uma chave (Acrescentar quantidade);\
 :heavy_check_mark: Dar saída em uma chave (Retirar quantidade);\
 :heavy_check_mark: Gerar relatórios PDF do estoque.
-
+:heavy_check_mark: Cadastrar um novo serviço / venda;\
+:heavy_check_mark: Listar todos serviços realizados;\
+:heavy_check_mark: Excluir serviços;\
+:heavy_check_mark: Editar serviços;\:heavy_check_mark: Cadastrar uma nova chave;\
+:heavy_check_mark: Realizar buscas por serviços;\
 ## :rocket: Tecnologias
 
 As tecnologias utilizadas nesse projeto foram:
@@ -65,7 +69,7 @@ As tecnologias utilizadas nesse projeto foram:
 
 ## :checkered_flag: Conheça o projeto
 
-Apenas <a href="https://gerenciadordeestoque.vercel.app/">clique aqui</a> para ver como ficou!.
+Apenas <a href="https://bschaveiro.vercel.app/">clique aqui</a> para ver como ficou!.
 
 ## 👨‍🎓 Alunos
 <p align='justify'>
