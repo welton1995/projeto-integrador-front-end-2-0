@@ -42,12 +42,12 @@ Em grupo, os alunos devem delimitar um problema a partir de um tema norteador, p
 :heavy_check_mark: Excluir chaves;\
 :heavy_check_mark: Dar entrada em uma chave (Acrescentar quantidade);\
 :heavy_check_mark: Dar saída em uma chave (Retirar quantidade);\
-:heavy_check_mark: Gerar relatórios PDF do estoque.
+:heavy_check_mark: Gerar relatórios PDF do estoque;\
 :heavy_check_mark: Cadastrar um novo serviço / venda;\
 :heavy_check_mark: Listar todos serviços realizados;\
 :heavy_check_mark: Excluir serviços;\
-:heavy_check_mark: Editar serviços;\:heavy_check_mark: Cadastrar uma nova chave;\
-:heavy_check_mark: Realizar buscas por serviços;\
+:heavy_check_mark: Editar serviços;\
+:heavy_check_mark: Realizar buscas por serviços;
 ## :rocket: Tecnologias
 
 As tecnologias utilizadas nesse projeto foram:
@@ -66,6 +66,9 @@ As tecnologias utilizadas nesse projeto foram:
 <h3>Banco de Dados</h3>
 - [MongoDB] (https://www.mongodb.com/pt-br)<br>
 - [Mongoose] (https://mongoosejs.com/docs/guide.html)<br>
+<h3>API</h3>
+- [Insominia] (https://insomnia.rest/) - Testes <br>
+- [Vercel] (https://vercel.com//) - Hospedagem <br>
 
 ## :checkered_flag: Conheça o projeto
 
